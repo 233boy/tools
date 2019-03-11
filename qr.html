@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>二维码生成</title>
+    <style>
+        #qrcode,
+		#text {
+			max-width: 1024px;
+		}
+		#text {
+			width: 95%;
+		}
+	</style>
+</head>
+
+<body>
+
+    <center>
+        <textarea id="text" type="text" placeholder="请输入内容" rows="23.333" cols="23.333" autofocus></textarea>
+        <p id="qrcode"></p>
+    </center>
+    <script>
+        text.value = window.location.hash.substring(1);
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lrsjng.jquery-qrcode/0.14.0/jquery-qrcode.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            function qr(text) {
+                var options = {
+                    render: 'canvas',
+                    size: 300,
+                    ecLevel: 'Q',
+                    fill: '#233',
+                    background: null,
+                    text: text,
+                    label: '233 Blog',
+                    fontname: 'sans',
+                    fontcolor: '#233',
+                    quiet: 0,
+                    mode: 2
+                };
+                $("#qrcode").empty().qrcode(options);
+            }
+
+
+
+            if (window.location.hash) {
+                var v = window.location.hash.substring(1);
+                $("#text").val(v);
+                qr(v);
+            }
+
+            $("#text").on("input", function (e) {
+                var v = $(e.target).val();
+                window.location.hash = v;
+                qr(v);
+                if (v === "") {
+                    qrcode.innerHTML = '尼玛。。。没有内容生成个蛋啊。。。。'
+                } else {
+                    qr(v);
+                }
+            })
+        })
+
+        "serviceWorker"in navigator&&navigator.serviceWorker.register("/tools/sw.js");
+    </script>
+</body>
+
+</html>
