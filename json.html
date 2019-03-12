@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>下载客户端配置文件</title>
+    <style>
+        #qrcode,
+		#text {
+			max-width: 1024px;
+		}
+		#text {
+			width: 95%;
+		}
+	</style>
+</head>
+
+<body>
+
+    <center>
+        <textarea id="text" type="text" placeholder="内容" rows="23.33" cols="23.33"></textarea>
+        <p>
+            <a id="download" style="display:none"></a>
+        </p>
+        <p>
+            如果出现下载的文件名不是 "233blog_v2ray.json" 的情况
+        </p>
+        <p>
+            可能是因为你使用了其他下载软件来接管浏览器的下载事件了
+        </p>
+        <p>
+            那么请按住 ALT 键，再点击浏览器 [ 刷新 ] 按钮，或者直接尝试按 [ CTRL + R ]。
+        </p>
+    </center>
+    <script>
+        var v = window.location.hash.substring(1),
+            d = atob(v);
+        if (v && d) {
+            text.value = d;
+            download.href = 'data:text/json;charset=utf-8,' + d;
+            download.download = '233blog_v2ray.json';
+            download.click();
+        }
+
+        "serviceWorker" in navigator && navigator.serviceWorker.register("/tools/sw.js");
+    </script>
+</body>
+
+</html>
