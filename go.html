@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>重定向...</title>
+</head>
+
+<body>
+    <script>
+        "serviceWorker" in navigator && navigator.serviceWorker.register("/tools/sw.js");
+        var addr = {
+            "1": "https://github.com/233boy/v2ray/wiki/V2Ray%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC",
+            "2": "https://github.com/233boy/v2ray/wiki/V2Ray%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B"
+        },
+        str = window.location.hash.substring(1),
+        go = addr[str];
+        if (go) {
+            document.location.href = go
+        }
+    </script>
+</body>
+
+</html>
