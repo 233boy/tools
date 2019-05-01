@@ -12,6 +12,12 @@
             name: 'static'
         }
     });
+    self.toolbox.router.get('/(.*)', self.toolbox.cacheFirst, {
+        origin: /cdn\.jsdelivr\.net/,
+        cache: {
+            name: 'jsdelivr'
+        }
+    });
     self.addEventListener('install', function (event) {
         return event.waitUntil(self.skipWaiting())
     });

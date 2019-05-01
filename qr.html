@@ -14,12 +14,20 @@
 		#text {
 			width: 95%;
 		}
+        img {
+            border: 1px #ddd solid;
+        }
 	</style>
 </head>
 
 <body>
 
     <center>
+        <p>
+            <a href="https://affping.com/to/bwgjms/post/how-to-buy-justmysocks/" target="_blank">
+                <img src="https://i.loli.net/2019/03/09/5c83d2490c41a.png" alt="搬瓦工 Just My Socks">
+            </a>
+        </p>
         <textarea id="text" type="text" placeholder="请输入内容" rows="23.333" cols="23.333" autofocus></textarea>
         <p id="qrcode"></p>
     </center>
@@ -27,8 +35,9 @@
         text.value = window.location.hash.substring(1);
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lrsjng.jquery-qrcode/0.14.0/jquery-qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/combine/npm/jquery@2.2.4/dist/jquery.min.js,gh/lrsjng/jquery-qrcode@0.14.0/dist/jquery-qrcode.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/lrsjng/jquery-qrcode@0.14.0/dist/jquery-qrcode.min.js"></script> -->
     <script type="text/javascript">
         $(function () {
 
