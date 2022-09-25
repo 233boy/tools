@@ -39,9 +39,6 @@
             提醒，此网页由 Github Page服务提供，<a href="https://github.com/233boy/tools" target="_blank" rel="noopener noreferrer">源代码在这里</a>
         </p>
     </center>
-    <script>
-        text.value = window.location.hash.substring(1);
-    </script>
 
     <script src="./jquery-qrcode.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/combine/npm/jquery@2.2.4/dist/jquery.min.js,gh/lrsjng/jquery-qrcode@0.14.0/dist/jquery-qrcode.min.js"></script> -->
@@ -69,14 +66,15 @@
 
             if (window.location.hash) {
                 var v = window.location.hash.substring(1);
-                $("#text").val(v);
-                qr(v);
+                text.value = v;
+                qr(v) || setTimeout(function(){qr(v);}, 1000);
             }
 
+            // auto focus
+            text.focus()
             $("#text").on("input", function (e) {
                 var v = $(e.target).val();
                 window.location.hash = v;
-                qr(v);
                 if (v === "") {
                     qrcode.innerHTML = '尼玛。。。没有内容生成个蛋啊。。。。'
                 } else {
