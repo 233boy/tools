@@ -29,6 +29,7 @@
             </a>
         </h2>
         <textarea id="text" type="text" placeholder="请输入内容" rows="23.333" cols="23.333"></textarea>
+	<textarea id="tag" type="text" placeholder="二维码中间的标签"></textarea>
         <p id="qrcode"></p>
         <p>
             提醒，此网页由 Github Page服务提供，<a href="https://github.com/233boy/tools" target="_blank" rel="noopener noreferrer">源代码在这里</a>
@@ -41,6 +42,7 @@
         $(function () {
 
             function qr(text) {
+		var txtTag = $("#tag").value();
                 var options = {
                     render: 'canvas',
                     size: 300,
@@ -48,7 +50,7 @@
                     fill: '#233',
                     background: null,
                     text: text,
-                    label: '233 Blog',
+                    label: txtTag,
                     fontname: 'sans',
                     fontcolor: '#233',
                     quiet: 0,
